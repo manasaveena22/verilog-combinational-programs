@@ -1,0 +1,14 @@
+module BinaryToGray #(
+  parameter n = 4 // Change this value to your desired bit width
+) (
+  input  [n-1:0] binary_input,
+  output reg [n-1:0] gray_output);
+  always @(binary_input) begin
+    // MSB is the same as binary MSB
+    gray_output[n-1] = binary_input[n-1];
+    // Convert the rest of the bits
+    for (integer i = n-2; i >= 0; i = i - 1) begin
+      gray_output[i] = binary_input[i] ^ binary_input[i+1];
+    end
+  end
+endmodule
