@@ -1,0 +1,10 @@
+module bcd_to_excess_3(
+    input [3:0] bcd_thousands, bcd_hundreds, bcd_tens, bcd_ones,
+    output reg [3:0] excess_3_thousands, excess_3_hundreds, excess_3_tens, excess_3_ones);
+    always @* begin
+        excess_3_thousands = bcd_thousands + 4'b0011;
+        excess_3_hundreds = bcd_hundreds + 4'b0011;
+        excess_3_tens = bcd_tens + 4'b0011;
+        excess_3_ones = bcd_ones + 4'b0011;
+    end
+endmodule
