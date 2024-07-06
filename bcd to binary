@@ -1,0 +1,11 @@
+module bcd_to_binary(
+    input [3:0] bcd_thousands,
+    input [3:0] bcd_hundreds,
+    input [3:0] bcd_tens,
+    input [3:0] bcd_ones,
+    output reg [7:0] binary_output);
+    always @* begin
+        binary_output = 8'b00000000;
+        binary_output = (bcd_thousands * 1000) + (bcd_hundreds * 100) + (bcd_tens * 10) + bcd_ones;
+    end
+endmodule
