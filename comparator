@@ -1,0 +1,7 @@
+module comparator(
+  input [3:0] a, [3:0] b,
+  output wire a_greater_b, a_equal_b, a_less_than_b);
+  assign a_greater_b = (a > b);
+  assign a_equal_b = (a == b);
+  assign a_less_than_b = (a < b);
+endmodule
