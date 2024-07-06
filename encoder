@@ -1,0 +1,7 @@
+module encoder (
+  input [7:0] data_in,
+  output [2:0] binary_out);
+  assign binary_out[0] = (data_in[0] | data_in[1] | data_in[2] ) ? 1'b1 : 1'b0;
+  assign binary_out[1] = (data_in[3] |data_in[4] | data_in[5]) ? 1'b1 : 1'b0;
+  assign binary_out[2] = ( data_in[6] | data_in[7]) ? 1'b1 : 1'b0;
+endmodule
