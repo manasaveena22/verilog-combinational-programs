@@ -1,0 +1,14 @@
+module multi (
+ input wire [7:0] data_inputs,  // 4-bit data inputs
+  input wire [3:0] select,             // 2-bit selection input
+  output wire output_result            // Output result
+);
+assign output_result =(select == 3'b000) ? data_inputs[0]:
+                      (select == 3'b001) ? data_inputs[1]:
+                      (select == 3'b010) ? data_inputs[2]:
+                      (select == 3'b011) ? data_inputs[3]:
+                      (select == 3'b100) ? data_inputs[4]:
+                      (select == 3'b101) ? data_inputs[5]:
+                      (select == 3'b110) ? data_inputs[6]:
+                                                         data_inputs[7];
+endmodule
