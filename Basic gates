@@ -1,0 +1,11 @@
+module basic (
+    input a, b,
+    output c,d,e,f,g,h,i );
+    assign c=!a;//not
+    assign d=a&&b;//and
+    assign e=a||b;//or
+    assign f=!(a&&b);//nand
+    assign g=!(a||b);//nor
+    assign h=(a^b);//xor
+    assign i=!(a^b);//xnor
+endmodule
