@@ -1,0 +1,24 @@
+module booths_multiplier ( 
+input wire signed [3:0] multiplicand, multiplier, 
+output reg signed [7:0] product 
+); 
+reg signed [8:0] A, S; 
+reg signed [9:0] P; 
+reg [3:0] count; 
+always @(multiplicand or multiplier) begin 
+A = {multiplicand, 5'b0}; 
+S = {-multiplicand, 5'b0}; 
+P = {5'b0, multiplier, 1'b0}; 
+count = 4; 
+repeat (4) begin 
+case (P[1:0]) 
+2'b01: P = P + A; 
+2'b10: P = P + S; 
+endcase 
+P = {P[9], P[9:1]}; 
+count = count - 1; 
+end 
+product = P[8:1]; 
+end 
+endmodule
+
